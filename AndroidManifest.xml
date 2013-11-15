@@ -1771,6 +1771,15 @@
                 android:resource="@id/system_settings" />
         </activity>
 
+        <activity
+            android:name=".fragments.AnimationControls"
+            android:label="@string/title_animation_controls">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.android.settings.SHORTCUT"/>
+            </intent-filter>
+        </activity>
+
         <activity android:name="Settings$QuickSettingsConfigActivity"
                 android:label="@string/tile_picker_title"
                 android:taskAffinity=""
