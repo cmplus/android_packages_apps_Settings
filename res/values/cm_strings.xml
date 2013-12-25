@@ -1245,7 +1245,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="rominfo_settings_list_item_title">CM Plus+ Stats</string>
     <string name="rominfo_settings_list_item_summary">Help make CM Plus+ better by opting into anonymous statistics reporting</string>
 
- 
+    <string name="wake_on_notification_summary">Wake device when a new notification is received</string>
+    <string name="wake_on_notification">Wake on notification</string>
     <!-- Lockscreen Notifications -->
     <string name="lockscreen_notifications">Lockscreen notifications</string>
     <string name="lockscreen_notifications_summary">Show pending notifications on lockscreen</string>
