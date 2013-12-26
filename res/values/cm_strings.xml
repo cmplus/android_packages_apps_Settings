@@ -1264,8 +1264,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="expanded_view_summary">Add possibility to toggle between normal and expanded view by longpress. The expanded view sometimes shows more private information so you might want to disable it.</string>
     <string name="force_expanded_view">Force expanded view</string>
     <string name="force_expanded_view_summary">Show notifications expanded by default. You still will be able to toggle between expanded and normal view.</string>
-
-
+    <string name="notifications_height">Notification count</string>
+    <string name="notifications_height_summary">Number of notifications displayed at once</string>
 
     <!-- Automatic performance profiles -->
     <string name="autoperf_title">Enable per-app profiles</string>
