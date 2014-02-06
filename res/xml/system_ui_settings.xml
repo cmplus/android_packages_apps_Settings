@@ -34,6 +34,11 @@
         android:title="@string/quick_settings_panel_title" />
 
     <PreferenceScreen
+        android:id="@+id/wakelock_blocker"
+        android:title="@string/wakelock_blocker"
+        android:fragment="com.android.settings.du.WakeLockBlocker" />
+
+    <PreferenceScreen
         android:key="omni_switch"
         android:title="@string/omni_switch" >
       <intent
@@ -66,7 +71,6 @@
 
     <PreferenceScreen
         android:key="progressbar_settings"
-        android:layout="@layout/preference_progressbar"
         android:fragment="com.android.settings.dokdo.ProgressBar"
         android:title="@string/progressbar_title" />
 
