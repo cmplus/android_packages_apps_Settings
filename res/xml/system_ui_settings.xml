@@ -49,6 +49,13 @@
         android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
     </PreferenceScreen>
 
+    <PreferenceScreen
+        android:key="progressbar_settings"
+        android:layout="@layout/preference_progressbar"
+        android:fragment="com.android.settings.dokdo.ProgressBar"
+        android:title="@string/progressbar_title" />
+    </PreferenceScreen>
+
     <PreferenceCategory
         android:key="category_app_circle_bar"
         android:title="@string/category_app_circle_bar_title">
