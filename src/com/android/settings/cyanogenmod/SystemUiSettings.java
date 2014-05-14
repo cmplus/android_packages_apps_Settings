@@ -17,6 +17,15 @@
 package com.android.settings.cyanogenmod;
 
 import android.content.ContentResolver;
+import android.text.TextUtils;
+import com.android.settings.vanir.AppMultiSelectListPreference;
+import java.util.HashSet;
+import java.util.Set;
+import java.lang.Thread;
+import java.util.ArrayList;
+import java.util.Arrays;
+import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -43,6 +52,11 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private static final String CATEGORY_NAVBAR = "navigation_bar";
     private static final String KEY_SCREEN_GESTURE_SETTINGS = "touch_screen_gesture_settings";
     private static final String KEY_NAVIGATION_BAR_LEFT = "navigation_bar_left";
+    private AppMultiSelectListPreference mIncludedAppCircleBar;
+    private CheckBoxPreference mEnableAppCircleBar;
+    private static final String PREF_ENABLE_APP_CIRCLE_BAR = "enable_app_circle_bar";
+    private static final String PREF_INCLUDE_APP_CIRCLE_BAR_KEY = "app_circle_bar_included_apps";
+
 
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
@@ -101,6 +115,10 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         } catch (RemoteException e) {
             Log.e(TAG, "Error getting navigation bar status");
         }
+        mIncludedAppCircleBar = (AppMultiSelectListPreference) prefScreen.findPreference(PREF_INCLUDE_APP_CIRCLE_BAR_KEY);
+         Set<String> includedApps = getIncludedApps();
+        if (includedApps != null) mIncludedAppCircleBar.setValues(includedApps);
+        mIncludedAppCircleBar.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -108,6 +126,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             int expandedDesktopValue = Integer.valueOf((String) objValue);
             updateExpandedDesktop(expandedDesktopValue);
             return true;
+        } else if (preference == mIncludedAppCircleBar) {
+            storeIncludedApps((Set<String>) objValue);
         } else if (preference == mExpandedDesktopNoNavbarPref) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
@@ -115,6 +135,31 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         }
 
         return false;
+    }
+
+    public boolean onPreferenceClick(Preference preference) {
+        return false;
+    }
+
+    private Set<String> getIncludedApps() {
+        String included = Settings.System.getString(getActivity().getContentResolver(),
+                Settings.System.WHITELIST_APP_CIRCLE_BAR);
+        if (TextUtils.isEmpty(included)) {
+            return null;
+        }
+        return new HashSet<String>(Arrays.asList(included.split("\\|")));
+    }
+
+    private void storeIncludedApps(Set<String> values) {
+        StringBuilder builder = new StringBuilder();
+        String delimiter = "";
+        for (String value : values) {
+            builder.append(delimiter);
+            builder.append(value);
+            delimiter = "|";
+        }
+        Settings.System.putString(getActivity().getContentResolver(),
+                Settings.System.WHITELIST_APP_CIRCLE_BAR, builder.toString());
     }
 
     private void updateExpandedDesktop(int value) {

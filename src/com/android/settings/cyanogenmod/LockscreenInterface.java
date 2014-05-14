@@ -34,6 +34,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+
 public class LockscreenInterface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -47,11 +48,13 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     private static final String KEY_ENABLE_MAXIMIZE_WIGETS = "lockscreen_maximize_widgets";
     private static final String KEY_LOCKSCREEN_MODLOCK_ENABLED = "lockscreen_modlock_enabled";
     private static final String KEY_LOCKSCREEN_TARGETS = "lockscreen_targets";
+    private static final String PREF_LOCKSCREEN_TORCH = "lockscreen_torch";
 
     private CheckBoxPreference mEnableKeyguardWidgets;
     private CheckBoxPreference mEnableCameraWidget;
     private CheckBoxPreference mEnableModLock;
     private CheckBoxPreference mEnableMaximizeWidgets;
+    private CheckBoxPreference mGlowpadTorch;
     private ListPreference mBatteryStatus;
     private Preference mLockscreenTargets;
 
@@ -79,7 +82,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         mEnableCameraWidget = (CheckBoxPreference) findPreference(KEY_ENABLE_CAMERA);
         mEnableMaximizeWidgets = (CheckBoxPreference) findPreference(KEY_ENABLE_MAXIMIZE_WIGETS);
         mLockscreenTargets = findPreference(KEY_LOCKSCREEN_TARGETS);
+        mGlowpadTorch = (CheckBoxPreference) findPreference(
+                PREF_LOCKSCREEN_TORCH);
+        mGlowpadTorch.setChecked(Settings.System.getInt(
+                getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_GLOWPAD_TORCH, 0) == 1);
+        mGlowpadTorch.setOnPreferenceChangeListener(this);
 
+  
         mEnableModLock = (CheckBoxPreference) findPreference(KEY_LOCKSCREEN_MODLOCK_ENABLED);
         if (mEnableModLock != null) {
             mEnableModLock.setOnPreferenceChangeListener(this);
@@ -119,6 +129,8 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             generalCategory.removePreference(mEnableModLock);
             mEnableModLock = null;
         }
+
+
 
         // Remove cLock settings item if not installed
         if (!Utils.isPackageInstalled(getActivity(), "com.cyanogenmod.lockclock")) {
@@ -218,7 +230,14 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             ((CheckBoxPreference) preference).setChecked(value);
             updateAvailableModLockPreferences();
             return true;
-        }
+        
+} else if (preference == mGlowpadTorch) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LOCKSCREEN_GLOWPAD_TORCH,
+                    (Boolean) objValue ? 1 : 0);
+            return true;
+
+}
 
         return false;
     }
