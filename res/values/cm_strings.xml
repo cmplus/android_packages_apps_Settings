@@ -1224,4 +1224,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="app_circle_bar_summary">Show circle app launcher after touching right side of screen</string>
     <string name="app_circle_bar_included_apps_title">Included apps</string>
     <string name="app_circle_bar_included_apps_summary">Apps will show in app circle bar</string>
+
+    <string name="power_menu_toggle_screenrecord_summary">Show screen Record option in Power Menu</string>
+    <string name="power_menu_toggle_screenrecord_title">Screen Record</string>
 </resources>
