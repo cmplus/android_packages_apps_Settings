@@ -1227,4 +1227,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <string name="power_menu_toggle_screenrecord_summary">Show screen Record option in Power Menu</string>
     <string name="power_menu_toggle_screenrecord_title">Screen Record</string>
+
+    <string name="power_menu_toggle_onthego_title">On-the-go</string>
+    <string name="power_menu_toggle_onthego_summary">Show on-the-go option in power menu</string>
 </resources>
