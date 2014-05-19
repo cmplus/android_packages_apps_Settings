@@ -1215,6 +1215,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Priority subscription settings -->
     <string name="priority_sub_title">Priority subscription</string>
 
+
     <string name="lockscreen_glowpad_torch_title">Slider torch</string>
     <string name="lockscreen_glowpad_torch_summary">Tap and hold the slider to start torch</string>
 
@@ -1230,4 +1231,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <string name="power_menu_toggle_onthego_title">On-the-go</string>
     <string name="power_menu_toggle_onthego_summary">Show on-the-go option in power menu</string>
+
+    <!-- Bluetooth accept all Filestypes -->
+    <string name="bluetooth_accept_all_files">Accept all file types</string>
+
 </resources>
