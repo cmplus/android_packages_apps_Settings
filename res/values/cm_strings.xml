@@ -613,7 +613,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="kill_app_longpress_back_summary">Kill the foreground app by long pressing the back button</string>
 
     <!-- Change Log strings -->
-    <string name="changelog_title">View changelog</string>
+    <string name="changelog_title">CM Plus+ changelog</string>
+    <string name="changelog_cat">View recent changes to CM Plus+</string>
     <string name="changelog_loading">Loading changelog\u2026</string>
     <string name="changelog_error">Unable to load changelog</string>
     <string name="changelog_unknown">Unknown</string>
@@ -1238,5 +1239,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
    <!-- OTA App -->
     <string name="ota_app">CM Plus+ Update Center</string>
     <string name="ota_app_summary">Check for ROM updates</string>
+
+   <!-- Anonymous stats -->
+    <string name="rominfo_settings_list_item_title">CM Plus+ Stats</string>
+    <string name="rominfo_settings_list_item_summary">Help make CM Plus+ better by opting into anonymous statistics reporting</string>
+
+ 
 
 </resources>
