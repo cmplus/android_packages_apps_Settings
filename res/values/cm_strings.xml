@@ -1236,6 +1236,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Bluetooth accept all Filestypes -->
     <string name="bluetooth_accept_all_files">Accept all file types</string>
 
+
    <!-- OTA App -->
     <string name="ota_app">CM Plus+ Update Center</string>
     <string name="ota_app_summary">Check for ROM updates</string>
@@ -1245,5 +1246,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="rominfo_settings_list_item_summary">Help make CM Plus+ better by opting into anonymous statistics reporting</string>
 
  
+
+
+    <!-- Automatic performance profiles -->
+    <string name="autoperf_title">Enable per-app profiles</string>
+    <string name="autoperf_summary">Automatically choose an appropriate performance profile for various applications</string>
+
+
+    <string name="graphics_title">Graphics and rendering</string>
 
 </resources>
