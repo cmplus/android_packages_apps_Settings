@@ -26,6 +26,12 @@
         android:entries="@array/notification_drawer_collapse_on_dismiss_entries"
         android:entryValues="@array/notification_drawer_collapse_on_dismiss_values" />
 
+     <PreferenceScreen
+        android:key="notification_style"
+        android:title="@string/notification_style_title"
+        android:summary="@string/notification_style_summary"
+        android:fragment="com.android.settings.cyanogenmod.NotificationDrawerStyle" />
+
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 

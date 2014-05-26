@@ -28,6 +28,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class NotificationDrawer extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "NotificationDrawer";
+    private static final String KEY_NOTIFICATION_STYLE = "notification_style";
 
     private static final String UI_COLLAPSE_BEHAVIOUR = "notification_drawer_collapse_on_dismiss";
 
