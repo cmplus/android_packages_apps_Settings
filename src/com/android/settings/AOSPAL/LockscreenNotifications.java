@@ -47,6 +47,8 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
     private CheckBoxPreference mPrivacyMode;
     private SeekBarPreference mOffsetTop;
 
+    private Context mContext;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,8 @@ public class LockscreenNotifications extends SettingsPreferenceFragment implemen
         addPreferencesFromResource(R.xml.lockscreen_notifications);
         PreferenceScreen prefs = getPreferenceScreen();
         final ContentResolver cr = getActivity().getContentResolver();
+
+        mContext = getActivity().getApplicationContext();
 
         mLockscreenNotifications = (CheckBoxPreference) prefs.findPreference(KEY_LOCKSCREEN_NOTIFICATIONS);
         mLockscreenNotifications.setChecked(Settings.System.getInt(cr,
