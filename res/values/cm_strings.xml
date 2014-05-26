@@ -1277,6 +1277,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="privacy_mode">Privacy Mode</string>
     <string name="privacy_mode_summary">Disables notifications from beeing shown and dismissed. This way, you just see the icons of your notifications.</string>
 
+    <string name="omni_switch">OmniSwitch settings</string>
+
     <!-- Automatic performance profiles -->
     <string name="autoperf_title">Enable per-app profiles</string>
     <string name="autoperf_summary">Automatically choose an appropriate performance profile for various applications</string>
