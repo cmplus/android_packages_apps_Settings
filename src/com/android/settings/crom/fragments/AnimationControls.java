@@ -26,7 +26,6 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     private static final String TASK_MOVE_TO_FRONT = "task_move_to_front";
     private static final String TASK_MOVE_TO_BACK = "task_move_to_back";
     private static final String ANIMATION_DURATION = "animation_duration";
-    private static final String ANIMATION_NO_OVERRIDE = "animation_no_override";
     private static final String WALLPAPER_OPEN = "wallpaper_open";
     private static final String WALLPAPER_CLOSE = "wallpaper_close";
     private static final String WALLPAPER_INTRA_OPEN = "wallpaper_intra_open";
@@ -43,7 +42,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     ListPreference mWallpaperIntraOpen;
     ListPreference mWallpaperIntraClose;
     AnimBarPreference mAnimationDuration;
-    CheckBoxPreference mAnimNoOverride;
+
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -66,9 +65,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
 
-        mAnimNoOverride = (CheckBoxPreference) findPreference(ANIMATION_NO_OVERRIDE);
-        mAnimNoOverride.setChecked(Settings.System.getBoolean(mContentRes,
-                Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false));
+
 
         mActivityOpenPref = (ListPreference) findPreference(ACTIVITY_OPEN);
         mActivityOpenPref.setOnPreferenceChangeListener(this);
@@ -136,17 +133,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mAnimationDuration.setInitValue((int) (defaultDuration));
         mAnimationDuration.setOnPreferenceChangeListener(this);
     }
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-                                         Preference preference) {
-       if (preference == mAnimNoOverride) {
-            Settings.System.putBoolean(mContentRes,
-                    Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE,
-                        mAnimNoOverride.isChecked());
-            return true;
-        }
-        return false;
-    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean result = false;

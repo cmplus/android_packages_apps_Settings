@@ -43,7 +43,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     ListPreference mWallpaperIntraOpen;
     ListPreference mWallpaperIntraClose;
     AnimBarPreference mAnimationDuration;
-    CheckBoxPreference mAnimNoOverride;
+
 
     private int[] mAnimations;
     private String[] mAnimationsStrings;
@@ -66,9 +66,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
 
-        mAnimNoOverride = (CheckBoxPreference) findPreference(ANIMATION_NO_OVERRIDE);
-        mAnimNoOverride.setChecked(Settings.System.getInt(mContentRes,
-                Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false));
+
 
         mActivityOpenPref = (ListPreference) findPreference(ACTIVITY_OPEN);
         mActivityOpenPref.setOnPreferenceChangeListener(this);
@@ -136,17 +134,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mAnimationDuration.setInitValue((int) (defaultDuration));
         mAnimationDuration.setOnPreferenceChangeListener(this);
     }
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-                                         Preference preference) {
-       if (preference == mAnimNoOverride) {
-            Settings.System.putInt(mContentRes,
-                    Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE,
-                        mAnimNoOverride.isChecked());
-            return true;
-        }
-        return false;
-    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         boolean result = false;
