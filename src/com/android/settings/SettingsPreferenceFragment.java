@@ -51,10 +51,10 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     private String mHelpUrl;
 
-    protected Context mContext;
+    public Context mContext;
 
     // Need to use AOKP Custom system animation
-    protected ContentResolver mContentRes;
+    public ContentResolver mContentRes;
 
     // Cache the content resolver for async callbacks
     private ContentResolver mContentResolver;

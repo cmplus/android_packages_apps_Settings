@@ -67,7 +67,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         }
 
         mAnimNoOverride = (CheckBoxPreference) findPreference(ANIMATION_NO_OVERRIDE);
-        mAnimNoOverride.setChecked(Settings.System.getBoolean(mContentRes,
+        mAnimNoOverride.setChecked(Settings.System.getInt(mContentRes,
                 Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE, false));
 
         mActivityOpenPref = (ListPreference) findPreference(ACTIVITY_OPEN);
@@ -140,7 +140,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
                                          Preference preference) {
        if (preference == mAnimNoOverride) {
-            Settings.System.putBoolean(mContentRes,
+            Settings.System.putInt(mContentRes,
                     Settings.System.ANIMATION_CONTROLS_NO_OVERRIDE,
                         mAnimNoOverride.isChecked());
             return true;
