@@ -1280,6 +1280,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="omni_switch">OmniSwitch settings</string>
     <string name="shortcut_image_not_valid">The chosen app did not return a valid icon or does not support image cropping. Use another app.</string>
 
+    <string name="context_header">Contextual header</string>
+    <string name="context_header_summary">Sets the background of the notification panel header to an image based on the current date and time</string>
+
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
     <string name="activity_open_title">Activity Open Animation</string>

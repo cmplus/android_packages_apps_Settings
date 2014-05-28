@@ -32,6 +32,12 @@
         android:summary="@string/notification_style_summary"
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawerStyle" />
 
+    <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="status_bar_custom_header"
+            android:title="@string/context_header"
+            android:summary="@string/context_header_summary"
+            android:defaultValue="false" />
+
     <PreferenceCategory
         android:title="@string/category_quick_access" >
 
