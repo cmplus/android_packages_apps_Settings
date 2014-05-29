@@ -1284,6 +1284,9 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="context_header">Contextual header</string>
     <string name="context_header_summary">Sets the background of the notification panel header to an image based on the current date and time</string>
 
+    <string name="notification_peek_title">Notification peek</string>
+    <string name="notification_peek_summary">Show latest notification after picking up your device</string>
+
     <!-- Animation Controls -->
     <string name="title_animation_controls">System Animations</string>
     <string name="activity_open_title">Activity Open Animation</string>
