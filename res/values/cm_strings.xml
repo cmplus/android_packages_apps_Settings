@@ -1287,6 +1287,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="notification_peek_title">Notification peek</string>
     <string name="notification_peek_summary">Show latest notification after picking up your device</string>
 
+    <string name="category_cmplus_progressbar_title">Progress Bar</string>
+    <string name="category_cmplus_notification_settings_title">Notification Settings</string>
+    <string name="category_cmplus_general_title">General</string>
+
+
     <!-- Smooth Progress Bar -->
     <string name="progressbar_title">Custom Progress Bar</string>
     <string name="progressbar_mirror_title">Mirror Mode</string>

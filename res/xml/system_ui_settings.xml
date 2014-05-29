@@ -19,6 +19,10 @@
     android:title="@string/system_interface_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <PreferenceCategory
+        android:key="category_cmplus_general"
+        android:title="@string/category_cmplus_general_title">
+
     <PreferenceScreen
         android:key="status_bar"
         android:fragment="com.android.settings.cyanogenmod.StatusBar"
@@ -30,6 +34,21 @@
         android:title="@string/quick_settings_panel_title" />
 
     <PreferenceScreen
+        android:key="omni_switch"
+        android:title="@string/omni_switch" >
+      <intent
+        android:action="android.intent.action.MAIN"
+        android:targetPackage="org.omnirom.omniswitch"
+        android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
+    </PreferenceScreen>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_cmplus_notification_settings"
+        android:title="@string/category_cmplus_notification_settings_title">
+
+    <PreferenceScreen
         android:key="notification_drawer"
         android:fragment="com.android.settings.cyanogenmod.NotificationDrawer"
         android:title="@string/notification_drawer_title" />
@@ -39,15 +58,11 @@
         android:title="@string/notification_peek_title"
         android:summary="@string/notification_peek_summary" />
 
+    </PreferenceCategory>
 
-    <PreferenceScreen
-        android:key="omni_switch"
-        android:title="@string/omni_switch" >
-      <intent
-        android:action="android.intent.action.MAIN"
-        android:targetPackage="org.omnirom.omniswitch"
-        android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
-    </PreferenceScreen>
+    <PreferenceCategory
+        android:key="category_cmplus_progressbar" 
+        android:title="@string/category_cmplus_progressbar_title">
 
     <PreferenceScreen
         android:key="progressbar_settings"
@@ -55,6 +70,8 @@
         android:fragment="com.android.settings.dokdo.ProgressBar"
         android:title="@string/progressbar_title" />
     </PreferenceScreen>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="category_app_circle_bar"
