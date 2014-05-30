@@ -69,7 +69,7 @@
         android:layout="@layout/preference_progressbar"
         android:fragment="com.android.settings.dokdo.ProgressBar"
         android:title="@string/progressbar_title" />
-    </PreferenceScreen>
+
 
     </PreferenceCategory>
 
