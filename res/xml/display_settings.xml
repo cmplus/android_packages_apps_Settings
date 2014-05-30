@@ -18,9 +18,9 @@
         android:title="@string/display_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-        <com.android.settings.BrightnessPreference
-                    android:title="@string/brightness"
-                    android:persistent="false"/>
+        <PreferenceCategory
+            android:key="animations_cat_cat"
+            android:title="@string/animations_cat">
 
     <PreferenceScreen
         android:id="@+id/animations"
@@ -28,9 +28,28 @@
         android:summary="@string/header_summary_animation"
         android:fragment="com.android.settings.crom.fragments.AnimationControls" />
 
+    <ListPreference
+        android:key="toast_animation"
+        android:title="@string/toast_animation_title"
+        android:entries="@array/toast_animation_entries"
+        android:entryValues="@array/toast_animation_values"
+        android:persistent="false" />
+
+            <ListPreference
+                android:key="screen_animation_style"
+                android:title="@string/screen_animation_style_title"
+                android:entries="@array/screen_animation_style_entries"
+                android:entryValues="@array/screen_animation_style_values" />
+
+        </PreferenceCategory>
+
         <PreferenceCategory
             android:key="display_prefs"
             android:title="@string/display_settings_title">
+
+        <com.android.settings.BrightnessPreference
+                    android:title="@string/brightness"
+                    android:persistent="false"/>
 
             <PreferenceScreen
                     android:key="display_rotation"
@@ -105,12 +124,6 @@
                 android:key="screen_off_animation"
                 android:title="@string/screen_animation_off_title"
                 android:defaultValue="true" />
-
-            <ListPreference
-                android:key="screen_animation_style"
-                android:title="@string/screen_animation_style_title"
-                android:entries="@array/screen_animation_style_entries"
-                android:entryValues="@array/screen_animation_style_values" />
 
             <PreferenceScreen
                 android:persistent="false"
