@@ -41,12 +41,14 @@ import android.view.WindowManagerGlobal;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.util.Helpers;
 
 public class SystemUiSettings extends SettingsPreferenceFragment  implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "SystemSettings";
 
     private static final String KEY_EXPANDED_DESKTOP = "expanded_desktop";
+    private static final String CUSTOM_RECENT_MODE = "custom_recent_mode";
     private static final String KEY_EXPANDED_DESKTOP_NO_NAVBAR = "expanded_desktop_no_navbar";
     private static final String CATEGORY_EXPANDED_DESKTOP = "expanded_desktop_category";
     private static final String CATEGORY_NAVBAR = "navigation_bar";
@@ -61,6 +63,7 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mExpandedDesktopNoNavbarPref;
     private CheckBoxPreference mNavigationBarLeftPref;
+    private CheckBoxPreference mRecentsCustom;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +78,14 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         mExpandedDesktopPref = (ListPreference) findPreference(KEY_EXPANDED_DESKTOP);
         mExpandedDesktopNoNavbarPref =
                 (CheckBoxPreference) findPreference(KEY_EXPANDED_DESKTOP_NO_NAVBAR);
+
+
+ 
+        boolean enableRecentsCustom = Settings.System.getBoolean(getContentResolver(),
+                                      Settings.System.CUSTOM_RECENT_TOGGLE, false);
+        mRecentsCustom = (CheckBoxPreference) findPreference(CUSTOM_RECENT_MODE);
+        mRecentsCustom.setChecked(enableRecentsCustom);
+        mRecentsCustom.setOnPreferenceChangeListener(this);
 
         // Navigation bar left
         mNavigationBarLeftPref = (CheckBoxPreference) findPreference(KEY_NAVIGATION_BAR_LEFT);
@@ -119,6 +130,8 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
          Set<String> includedApps = getIncludedApps();
         if (includedApps != null) mIncludedAppCircleBar.setValues(includedApps);
         mIncludedAppCircleBar.setOnPreferenceChangeListener(this);
+
+        updateRecentsOptions();
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -131,6 +144,13 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
         } else if (preference == mExpandedDesktopNoNavbarPref) {
             boolean value = (Boolean) objValue;
             updateExpandedDesktop(value ? 2 : 0);
+            return true;
+        } else if (preference == mRecentsCustom) { // Enable||disbale Slim Recent
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.CUSTOM_RECENT_TOGGLE,
+                    ((Boolean) objValue) ? true : false);
+            updateRecentsOptions();
+            Helpers.restartSystemUI();
             return true;
         }
 
@@ -148,6 +168,11 @@ public class SystemUiSettings extends SettingsPreferenceFragment  implements
             return null;
         }
         return new HashSet<String>(Arrays.asList(included.split("\\|")));
+    }
+
+    private void updateRecentsOptions() {
+        boolean recentsStyle = Settings.System.getBoolean(getActivity().getContentResolver(),
+               Settings.System.CUSTOM_RECENT_TOGGLE, false);
     }
 
     private void storeIncludedApps(Set<String> values) {

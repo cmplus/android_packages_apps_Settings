@@ -38,6 +38,12 @@
         android:title="@string/wakelock_blocker"
         android:fragment="com.android.settings.du.WakeLockBlocker" />
 
+    <CheckBoxPreference
+            android:key="custom_recent_mode"
+            android:title="@string/custom_recent_title"
+            android:summary="@string/custom_recent_summary"
+            android:persistent="false" />
+
     <PreferenceScreen
         android:key="omni_switch"
         android:title="@string/omni_switch" >
