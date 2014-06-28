@@ -196,6 +196,7 @@
         <activity android:name="Settings"
                 android:label="@string/settings_label_launcher"
                 android:taskAffinity="com.android.settings"
+                android:configChanges="orientation|screenSize"
                 android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1906,8 +1907,6 @@
 
         <activity android:name=".notificationlight.BatteryLightSettings" />
 
-        <activity android:name=".cyanogenmod.LockscreenInterface" />
-
          <!-- "Blacklist settings" UI, used only on voice-capable phone devices. -->
         <activity android:name="Settings$BlacklistSettingsActivity"
                 android:theme="@style/Theme.DialogWhenLarge"
@@ -2183,5 +2182,6 @@
             android:name=".cyanogenmod.LtoService">
         </service>
 
+        <service android:name=".search.SearchPopulator"/>
     </application>
 </manifest>
