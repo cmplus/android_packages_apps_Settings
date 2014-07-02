@@ -40,6 +40,12 @@
             android:defaultValue="false"
             android:summary="@string/summary_qs_small_icons" />
 
+        <PreferenceScreen
+            android:key="quicksettings_tiles_style"
+            android:fragment="com.android.settings.axxion.QuickSettingsTilesStyle"
+            android:title="@string/quicksettings_tiles_style"
+            android:summary="@string/summary_quicksettings_tiles_style" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
