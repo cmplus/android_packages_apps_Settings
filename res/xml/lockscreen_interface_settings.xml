@@ -23,10 +23,6 @@
         android:key="lockscreen_general_category" >
 
         <PreferenceScreen
-            android:title="@string/lockscreen_notifications"
-            android:fragment="com.android.settings.AOSPAL.LockscreenNotifications" />
-
-        <PreferenceScreen
             android:key="screen_security"
             android:fragment="com.android.settings.LockscreenSecuritySettings"
             android:title="@string/screen_security_category"
@@ -59,6 +55,18 @@
         <CheckBoxPreference
             android:key="lockscreen_modlock_enabled"
             android:title="@string/lockscreen_enable_modlock_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/category_cmplus_addition"
+        android:key="lockscreen_addition" >
+
+        <PreferenceScreen
+            settings:includeXmlForSearch="@xml/lockscreen_notifications"
+            android:title="@string/lockscreen_notifications"
+            android:fragment="com.android.settings.AOSPAL.LockscreenNotifications"
+            android:summary="@string/lockscreen_notifications_summary" />
 
         <CheckBoxPreference
             android:key="lockscreen_torch"

@@ -17,7 +17,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     
     <!-- Custom Recent Settings -->
-    <string name="custom_recent_title">Use SlimRecents</string>
-    <string name="custom_recent_summary">Tick to Slim recents or untick for stock recents. TICKING OR UNTICKING THIS BOX WILL RESTART YOUR SYSTEMUI</string>
+    <string name="custom_recent_title">Slim Recents</string>
+    <string name="custom_recent_summary">Tick to use Slim Recents or untick for AOSP Recents.</string>
+    <string name="category_cmplus_recent_title">Recents</string>
+    <string name="category_cmplus_advanced_title">Advanced</string>
+    <string name="category_cmplus_addition">Additional Settings</string>
     
 </resources>
