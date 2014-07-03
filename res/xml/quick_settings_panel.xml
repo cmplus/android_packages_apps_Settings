@@ -40,11 +40,23 @@
             android:defaultValue="false"
             android:summary="@string/summary_qs_small_icons" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cmplus_addition"
+        android:title="@string/category_cmplus_addition" >
+
         <PreferenceScreen
             android:key="quicksettings_tiles_style"
             android:fragment="com.android.settings.axxion.QuickSettingsTilesStyle"
             android:title="@string/quicksettings_tiles_style"
             android:summary="@string/summary_quicksettings_tiles_style" />
+            
+        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
+            android:key="quick_settings_tiles_flip"
+            android:title="@string/flip_qs_tiles_title"
+            android:summary="@string/flip_qs_tiles_summary"
+            android:defaultValue="true" />
 
     </PreferenceCategory>
 
