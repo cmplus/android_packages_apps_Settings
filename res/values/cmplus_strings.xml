@@ -38,5 +38,7 @@
     <!-- OnClick Fliptile animation -->
     <string name="flip_qs_tiles_title">Flip tiles</string>
     <string name="flip_qs_tiles_summary">Flips the tiles on touch</string> 
+
+    <string name="heads_up_floating_window">Launch in floating window</string>
     
 </resources>
