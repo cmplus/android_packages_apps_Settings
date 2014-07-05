@@ -35,13 +35,4 @@
             android:summary="@string/add_heads_up_blacklist_summary"/>
     </PreferenceCategory>
 
-    <PreferenceCategory
-            android:title="@string/category_cmplus_advanced_title"
-            android:key="heads_up_float">
-        <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
-                android:key="heads_up_floating_window"
-                android:title="@string/heads_up_floating_window"
-                android:defaultValue="true" />
-    </PreferenceCategory>
-
 </PreferenceScreen>
